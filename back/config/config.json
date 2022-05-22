@@ -1,0 +1,12 @@
+{
+    "test": {
+      "username": "root",
+      "password": "mohamed",
+      "database": "groupo",
+      "host": "localhost",
+      "port": "3306",
+      "dialect": "mysql"
+    }
+    
+  }
+  
