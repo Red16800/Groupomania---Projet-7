@@ -25,6 +25,17 @@
   </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    Logout() {
+      localStorage.clear();
+      this.$router.replace("/login");
+    },
+  },
+};
+</script>
+
 <style>
 @import './assets/css/main.css';
 </style>
