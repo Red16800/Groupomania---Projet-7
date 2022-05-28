@@ -5,12 +5,12 @@ const sequelize = require('./database');
 const models = {};
 
 User.hasMany(Post, {
-    foreignKey: 'UserId',
+    foreignKey: 'idUser',
     onDelete: 'cascade'
 });
 
 Post.belongsTo(User, {
-    foreignKey: 'UserId',
+    foreignKey: 'idUser',
     onDelete: 'cascade'
 });
 

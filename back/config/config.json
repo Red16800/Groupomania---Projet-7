@@ -2,7 +2,7 @@
     "test": {
       "username": "root",
       "password": "mohamed",
-      "database": "groupo",
+      "database": "groupomania",
       "host": "localhost",
       "port": "3306",
       "dialect": "mysql"

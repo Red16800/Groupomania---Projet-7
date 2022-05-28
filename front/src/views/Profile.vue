@@ -3,13 +3,25 @@
      <form>
     <h1>MON PROFIL</h1>
     <div id="container">
-
+<!-- ICI ajouter de quoi afficher les posts du profil -->
+      <div class="les-Posts">
+        <h3>Mes Posts</h3>
+        <cardPost
+          :key="post.id"
+          v-for="post of posts"
+          :title="post.title"
+          :content="post.content"
+          :user="post.User"
+          :image="post.image"
+          :id="post.id"
+        />
+      </div>
       <div id="profil">
-        <!-- Email, Nom et prénom du profil -->
+        <!-- Email et pseudo du profil -->
         <div v-if="dataProfile">
           <p>E-mail :{{ " " + dataProfile.email }}</p>
           <p>
-            Pseudo:
+            Prénom et Nom :
             {{ dataProfile.firstname + " " + dataProfile.lastname }}
           </p>
           <hr />
@@ -20,19 +32,27 @@
           <span></span>
           <span></span>
         </div>
-        <!-- modification Nom et prénom du profil -->
+        <!-- modification pseudo et email du profil -->
         <form method="post" @submit.prevent="updateProfile">
           <div>
-            <label for="pseudo">Pseudo</label><br />
+            <label for="lastname">Nom</label><br />
             <input
               required
-              v-model="pseudo"
+              v-model="lastname"
               type="text"
-              name="pseudo"
-              id="pseudo-input"
+              name="lastName"
+              id="lastname-input"
+              class="form-control form-control-lg"/>
+            <label for="firstname">Prénom</label><br />
+            <input
+              required
+              v-model="firstname"
+              type="text"
+              name="firstname"
+              id="firstname-input"
               class="form-control form-control-lg"/>
           </div>
-          
+
 
           <button class="btn btn-dark btn-lg btn-block" type="submit" @click.prevent="updateProfile">Modifier</button>
           <p v-if="message">{{ message }}</p>
@@ -47,7 +67,7 @@
     </form>
   </div>
 </template>
-//----------------------------------------------------------------------------------------------------------------------
+
 <script>
 import axios from "axios";
 import cardPost from "../components/cardPost";
@@ -75,7 +95,7 @@ export default {
     loadProfile() {
       let userId = localStorage.getItem("id");
       axios
-        .get("/api/auth/profile/" + userId)
+        .get("http://localhost:3000/api/user/profile/" + userId)
         .then((res) => {
           this.dataProfile = res.data;
         })
@@ -89,7 +109,7 @@ export default {
     allPostsProfile() {
       let userId = localStorage.getItem("id");
       axios
-        .get("/api/auth/profile/" + userId + "/posts")
+        .get("http://localhost:3000/api/user/profile/" + userId + "/posts")
         .then((res) => {
           this.posts = res.data;
         })
@@ -107,7 +127,7 @@ export default {
         lastname: this.lastname,
       };
       axios
-        .put("/api/auth/profile/" + userId, data)
+        .put("http://localhost:3000/api/user/profile/" + userId, data)
         .then((res) => {
           alert("Votre profil a bien été mis à jour !");
           this.dataProfile = res.data.user;
@@ -129,7 +149,7 @@ export default {
       }
       let userId = localStorage.getItem("id");
       axios
-        .delete("/api/auth/profile/" + userId)
+        .delete("http://localhost:3000/api/user/profile/" + userId)
         .then(() => {
           alert("Votre compte est supprimé !");
           this.$router.push("/signup");

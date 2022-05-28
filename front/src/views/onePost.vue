@@ -1,0 +1,121 @@
+<template>
+  <div>
+    <div v-if="post">
+      <div class="le-post">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+        <img :src="post.image" />
+        <!-- <img src="http://localhost:3000/images/monimage.png"> -->
+        <div>
+          <button
+            v-if="post.idUser === me || isAdmin"
+            @click.prevent="deletePost(post.id)"
+          >
+            Supprimer
+          </button>
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      chargement...
+    </div>
+  </div>
+</template>
+//----------------------------------------------------------------------------------------------------------------------
+<script>
+import axios from "axios";
+
+export default {
+  name: "onePost",
+  
+  data() {
+    return {
+      post: null,
+      me: 0,
+      isAdmin: false,
+    };
+  },
+  methods: {
+    // Pour charger le post selectionné
+    async fetchPost() {
+      try {
+        const { data } = await axios.get("http://localhost:3000/api/post/" + this.$route.params.id);
+        this.post = data;
+      } catch (error) {
+        console.log("error");
+      }
+    },
+    async refreshComments() {
+      await this.fetchComments();
+      this.$refs.comments.scrollIntoView({
+        behavior: "smooth",
+      });
+    },
+    
+    // Pour delete le post séléctionné
+    async deletePost(id) {
+      console.log("delete post id: ", id);
+      const isConfirm = await confirm(
+        "Confirmez vous la suppression du post ?"
+      );
+      console.log({ isConfirm });
+      if (!isConfirm) {
+        return;
+      }
+      axios
+        .delete("http://localhost:3000/api/post" + this.$route.params.id)
+        .then(() => {
+          alert("Votre post a bien été supprimé !");
+          this.$router.push("/");
+        })
+        .catch((error) => {
+          console.log({ error });
+        });
+    },
+  },
+  mounted() {
+    this.fetchPost();
+    this.fetchComments();
+    this.me = Number(localStorage.getItem("id"));
+    this.isAdmin = localStorage.getItem("isAdmin") === "true";
+  },
+};
+</script>
+//----------------------------------------------------------------------------------------------------------------------
+<style scoped>
+.le-post {
+  margin: 30px 20px 30px 20px;
+  padding: 1px 0px 30px 0px;
+  background-color: #d2fafa;
+  border-radius: 10px;
+}
+.card {
+  margin: 10px 20px 20px 20px;
+  padding: 1px 30px 30px 30px;
+  background-color: white;
+  border-radius: 10px;
+}
+button {
+  width: 120px;
+  cursor: pointer;
+  border: unset;
+  font-size: 1em;
+  box-shadow: 5px 5px 15px -3px rgb(0 0 0 / 50%);
+  background: rgb(255, 61, 61);
+  margin-top: 10px;
+  transition: 0.3s;
+  color: white;
+  font-weight: bold;
+}
+.commDe {
+  font-style: italic;
+}
+img {
+  max-width: 60%;
+}
+@media screen and (max-width: 1130px) {
+  img {
+    max-width: 90%;
+  }
+}
+</style>

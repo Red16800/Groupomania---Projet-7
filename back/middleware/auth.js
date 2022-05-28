@@ -1,19 +1,16 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken"); // Crée et check un token d'identification sécurisé
 
+// MIDDLEWARE AUTH
 module.exports = (req, res, next) => {
+  // Check si le token est bon
   try {
-    const token = req.headers.authorization.split(' ')[1];
-    const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
-    const userId = decodedToken.userId;
-    req.auth = { userId };
-    if (req.body.userId && req.body.userId !== userId) {
-      throw 'Invalid user ID';
-    } else {
-      next();
-    }
+    // Check si le token est bon grâce à notre phrase secrète
+    const token = req.headers.authorization.split(" ")[1];
+    const decodedToken = jwt.verify(token, process.env.TOKEN);
+    res.locals.userId = decodedToken.userId;
+    res.locals.isAdmin = decodedToken.isAdmin;
+    next();
   } catch {
-    res.status(401).json({
-      error: new Error('Invalid request!')
-    });
+    res.status(401).json({ message: "Requête invalide!" });
   }
 };

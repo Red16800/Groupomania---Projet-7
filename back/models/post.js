@@ -2,14 +2,14 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('./database');
 
 const Post = sequelize.define('Post', {
-    content: {
-        type: DataTypes.TEXT,
+    title: {
+        type: DataTypes.STRING,
         allowNull: false
     },
-    imageUrl: {
-        type: DataTypes.STRING,
-        allowNull: true
-    },
-})
+    content: DataTypes.TEXT,
+    image: DataTypes.STRING,
+    
+    
+});
 
 module.exports = Post;

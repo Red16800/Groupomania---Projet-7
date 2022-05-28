@@ -35,7 +35,7 @@ export default {
     async fetchPosts() {
       this.loading = true;
       try {
-        const { data } = await axios.get("/api/post");
+        const { data } = await axios.get("http://localhost:3000/api/post");
         this.posts = data;
       } catch (error) {
         if (error.status === 401) {
@@ -50,44 +50,3 @@ export default {
   },
 };
 </script>
-//----------------------------------------------------------------------------------------------------------------------
-<style scoped>
-h3 {
-  margin-left: 20px;
-  margin-right: 20px;
-  background-color: #d2fafa;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  border-radius: 10px;
-}
-#chargement {
-  margin-top: 20px;
-  color: #31bcc6;
-}
-#chargement span {
-  width: 0.5em;
-  height: 0.5em;
-  margin: 0 2px;
-  background-color: #31bcc6;
-  border-radius: 50%;
-  display: inline-block;
-  animation-name: JumpingDots;
-  animation-duration: 1.4s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-span:nth-child(2) {
-  animation-delay: 0.4s;
-}
-span:nth-child(3) {
-  animation-delay: 0.8s;
-}
-@keyframes JumpingDots {
-  30% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-</style>

@@ -2,8 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
   const routes = [
-  {
-    path: '/',
+    {
+      path: '/',
+      name: 'feed',
+      component: () => import('../views/feed.vue')
+    },
+  
+    {
+    path: '/signup',
     name: 'signup',
     component: () => import('../views/Signup.vue')
   },
@@ -18,9 +24,9 @@ Vue.use(VueRouter)
     component: () => import("../views/Profile.vue"),
   },
   {
-    path: '/forgot-password',
-    name: 'forgot-password',
-    component: () => import('../views/ForgotPassword.vue')
+    path: "/post/:id",
+    name: "post",
+    component: () => import("../views/onePost.vue"),
   }
 ]
 const router = new VueRouter({

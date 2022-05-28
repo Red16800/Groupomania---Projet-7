@@ -3,12 +3,12 @@
     <h2>{{ title }}</h2>
     <p>{{ content }}</p>
     <div>
-      <router-link :to="`/post/${id}`">
+      <router-link :to="`http://localhost:3000/api/post${id}`">
         <img :src="image" />
       </router-link>
     </div>
-    <p class="commDe">Publié par {{ user.firstname }} {{ user.lastname }}</p>
-    <router-link :to="`/post/${id}`">Commentaires ...</router-link>
+    <p class="commDe">Publié par{{ user.pseudo }}</p>
+    <router-link :to="`http://localhost:3000/api/post${id}`">Commentaires ...</router-link>
   </div>
 </template>
 //----------------------------------------------------------------------------------------------------------------------

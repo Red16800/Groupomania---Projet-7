@@ -25,7 +25,7 @@
             <button type="submit" class="btn btn-dark btn-lg btn-block"  @click.prevent="buttonLogin">
             Se connecter</button>
             <p class="forgot-password text-right mt-2 mb-4">
-                <router-link to="/forgot-password">Mot de passe oublié ?</router-link>
+                <router-link to="/signup">Créer un compte ?</router-link>
             </p>
             <div class="social-icons">
                 <ul>
@@ -46,6 +46,7 @@ export default {
       userId: "",
       email: "",
       password: "",
+      message: "",
     };
   },
   methods: {
