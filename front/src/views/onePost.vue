@@ -1,7 +1,7 @@
 <template>
-  <div >
+  <div class="blocComment" >
     <div v-if="post" >
-      <div class="inner-block">
+      <div class="le-post">
         <h1>{{ post.title }}</h1>
         <p>{{ post.content }}</p>
         <img :src="post.image" />
@@ -25,8 +25,8 @@
           <p>
             {{ comment.comment }}
           </p>
-          <p class="commDe">
-            Publié par {{ comment.User.firstName }} {{ comment.User.lastName }}
+          <p class="nameSuivie">
+            {{ comment.User.firstName }} {{ comment.User.lastName }}
           </p>
           <div v-if="comment.User.id === me || isAdmin">
             <button class="btn btn-danger btn-lg btn-block" @click.prevent="deleteComment(comment.id)">
@@ -141,7 +141,7 @@ export default {
 <style scoped>
 
 img {
-  max-width: 90%;
+  max-width: 80%;
 }
 
 </style>

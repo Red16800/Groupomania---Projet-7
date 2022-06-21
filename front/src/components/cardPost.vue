@@ -7,6 +7,7 @@
         <img :src="image" />
       </router-link>
     </div>
+    <p class="nameSuivie"> {{ user.firstname }} {{ user.lastname }}</p>
     <router-link :to="`/post/${id}`">Commentaires ...</router-link>
   </div>
 </template>

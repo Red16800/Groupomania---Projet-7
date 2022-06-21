@@ -1,5 +1,5 @@
 <template >
-  <div v-if="!loading" id="allPost" >
+  <div v-if="!loading" class="allPost" >
     <h3 class="titleActu">Fil d'actualité...</h3>
     <card-post
       :key="post.id"
@@ -44,3 +44,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+img {
+  max-width: 60%;
+}
+</style>

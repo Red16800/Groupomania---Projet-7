@@ -80,9 +80,8 @@
   }
 .createPost{
   background-color: #ffd7d7;
-  width: 450px;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 40px 55px 45px 55px;
+  padding: 20px;
   border-radius: 15px;
   margin-bottom: 10px;
 }
@@ -92,6 +91,7 @@
   border-radius: 30px;
   border-color: #fd2d01;
   margin-bottom: 10px;
+  padding: 15px;
 }
 .titleWall{
   text-align: center;
@@ -110,6 +110,8 @@
 }
 #container {
   display: flex;
+  width: 90%;
+  margin: 50px;
   justify-content: space-around;
   position: absolute;
   top: 210px;
@@ -117,33 +119,52 @@
 .allpost {
   flex: 2;
   max-width: 95%;
-  margin-left: 10px;
-  margin-right: 10px;
   background: #ffffff;
   border-radius: 15px;
 }
 .newpost {
   flex: 1;
   max-width: 95%;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.comment{
-  width: 90%;
-  background-color: #ffd7d7;
-  border-radius: 15px;
-  margin: auto;
-  margin-top: 15px;
+  margin-left: 50px;
+ 
+  
 }
 .test{
   border: solid 2px #fd2d01;
-  width: 70%;
+  width: 600px;
   background-color: #ffd7d7;
-  margin: auto;
+  margin: 0 50px 50px 50px;
   border-radius: 10px;
   padding-left: 10px;
   margin-bottom: 10px;
-  cursor: pointer;
+
+}
+.blocComment{
+  
+  flex-direction: column;
+  position: absolute;
+  top: 100px;
+  width: 85%;
   
   
+
+}
+.le-post { 
+  background-color: #ffd7d7;
+  border-radius: 15px;
+  padding: 20px;
+  margin-left: 180px;
+ 
+}
+.comment{
+  background-color: #ffd7d7;
+  border-radius: 15px;
+ padding: 20px;
+  margin-top: 15px;
+  padding-left: 15px;
+  margin-left: 180px;
+}
+.nameSuivie{
+  font-weight: 600;
+  color: #651200;
 }
