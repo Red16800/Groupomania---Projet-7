@@ -4,6 +4,11 @@ const routes = [
 
   {
     path: "/",
+    name: "wall",
+    component: () => import("../views/wall.vue"),
+  },
+  {
+    path: "/signup",
     name: "signup",
     component: () => import("../views/signup.vue"),
   },
@@ -11,7 +16,17 @@ const routes = [
     path: "/login",
     name: "login",
     component: () => import("../views/login.vue"),
-  }
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    component: () => import("../views/profile.vue"),
+  },
+  {
+    path: "/post/:id",
+    name: "post",
+    component: () => import("../views/onePost.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
