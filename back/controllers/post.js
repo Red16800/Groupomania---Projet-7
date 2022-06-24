@@ -1,7 +1,6 @@
 const { Post, User } = require("../models");
 const fs = require("fs-extra");
-//----------------------------------------------------------------------------------------------------------------------
-// CREATEPOST
+
 exports.createPost = (req, res, next) => {
   if (req.body.title === "" || req.body.content === "") {
     return res.status(400).json({ error: "Merci de remplir tous les champs." });
@@ -11,7 +10,7 @@ exports.createPost = (req, res, next) => {
     idUser: res.locals.userId,
     title: req.body.title,
     content: req.body.content,
-    /*le front end ne connaissant pas l'url de l'image il faut le définir manuellement*/
+   
     image:
       req.body.content && req.file
         ? `${req.protocol}://${req.get("host")}/images/${req.file.filename}`
@@ -27,10 +26,9 @@ exports.createPost = (req, res, next) => {
     .catch((error) => res.status(400).json({ error }));
 };
 
-//----------------------------------------------------------------------------------------------------------------------
-//GETALLPOSTS
+
 exports.getAllPosts = (_req, res) => {
-  //Récupère la list des posts du plus récents aux plus ancien avec User.firstname et User.lastname à partir de la clé étrangère idUser.
+  
   Post.findAll({
     order: [["createdAt", "DESC"]],
     attributes: [
@@ -53,8 +51,7 @@ exports.getAllPosts = (_req, res) => {
       });
     });
 };
-//----------------------------------------------------------------------------------------------------------------------
-//GETONEPOST
+
 exports.getOnePost = async (req, res, next) => {
   try {
     const post = await Post.findOne({
@@ -82,8 +79,7 @@ exports.getOnePost = async (req, res, next) => {
     });
   }
 };
-//----------------------------------------------------------------------------------------------------------------------
-// DELETEPOST
+
 exports.deletePost = async (req, res, next) => {
   try {
     const post = await Post.findOne({ where: { id: req.params.id } });

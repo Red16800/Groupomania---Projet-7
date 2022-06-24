@@ -1,4 +1,4 @@
-// MODULES
+
 const multer = require("multer");
 
 const MIME_TYPES = {
@@ -8,18 +8,18 @@ const MIME_TYPES = {
   "image/gif": "gif",
 };
 
-// FONCTION STORAGE
+
 const storage = multer.diskStorage({
-  // Configure multer
+  
   destination: (req, file, callback) => {
-    // Indique où enregistrer les fichiers
+    
     callback(null, "images");
   },
   filename: (req, file, callback) => {
-    // Indique le nom du fichier
-    const name = file.originalname.split(" ").join("_"); // Retire les potentiels espaces
-    const extension = MIME_TYPES[file.mimetype]; // Défini le type
-    callback(null, name + Date.now() + "." + extension); // Génère le nom unique
+    
+    const name = file.originalname.split(" ").join("_"); 
+    const extension = MIME_TYPES[file.mimetype]; 
+    callback(null, name + Date.now() + "." + extension); 
   },
 });
 
