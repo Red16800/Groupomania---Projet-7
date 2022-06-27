@@ -41,7 +41,7 @@
           <p v-if="message">{{ message }}</p>
         </form>
         <hr />
-        <!-- Supprimer le profil -->
+      
         <button class="btn btn-danger btn-lg btn-block" type="submit" @click.prevent="deleteProfile">
           Supprimer mon compte
         </button>
@@ -50,7 +50,7 @@
     <br>
   </div>
 </template>
-//----------------------------------------------------------------------------------------------------------------------
+
 <script>
 import axios from "axios";
 export default {
@@ -136,7 +136,6 @@ export default {
     },
   },
   mounted() {
-    /*appeler les fonctions quand l'html sera pret*/
     this.loadProfile();
     this.allPostsProfile();
   },

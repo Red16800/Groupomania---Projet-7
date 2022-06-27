@@ -23,7 +23,6 @@
         />
       </div>
       <div>
-        <!-- <label for="File" class="file">(Image facultative)</label> -->
         <input type="file" id="file" ref="file" @change="selectFile()" />
       </div>
       <button type="submit" class="btn btn-dark btn-lg btn-block" @click.prevent="buttonNewPost">Envoyer</button>
@@ -50,14 +49,14 @@ export default {
     },
     buttonNewPost() {
       const data = new FormData();
-      //avec image
+      
       if (this.file !== null) {
         data.append("userId", this.userId);
         data.append("title", this.title);
         data.append("content", this.content);
         data.append("image", this.file, this.file.name);
         location.reload();
-        //sans image
+        
       } else {
         data.append("userId", this.userId);
         data.append("title", this.title);

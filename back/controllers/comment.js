@@ -1,6 +1,5 @@
 const { Comment, User } = require("../models");
-//----------------------------------------------------------------------------------------------------------------------
-//CREATECOMMENT
+
 exports.createComment = (req, res, next) => {
   if (!req.body.comment) {
     return res.status(400).json({ error: "Merci de remplir le champ." });
@@ -13,7 +12,7 @@ exports.createComment = (req, res, next) => {
     .then(() => res.status(200).json({ message: "Commentaire envoyé !" }))
     .catch((error) => res.status(500).json(error));
 };
-//----------------------------------------------------------------------------------------------------------------------
+
 exports.getAllComment = (req, res, next) => {
   Comment.findAll({
     where: { idPost: req.params.postId },
@@ -29,7 +28,7 @@ exports.getAllComment = (req, res, next) => {
       });
     });
 };
-//----------------------------------------------------------------------------------------------------------------------
+
 exports.deleteComment = async (req, res, next) => {
   try {
     const comment = await Comment.findOne({ where: { id: req.params.id } });

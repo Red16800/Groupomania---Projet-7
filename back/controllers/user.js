@@ -3,8 +3,7 @@ const jwt = require("jsonwebtoken");
 const passwordValidator = require("password-validator");
 require("dotenv").config();
 const { User, Post } = require("../models");
-//----------------------------------------------------------------------------------------------------------------------
-//creation du schema
+
 let schema = new passwordValidator();
 schema
   .is()
@@ -26,8 +25,7 @@ schema
 
 const regexEmail =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//----------------------------------------------------------------------------------------------------------------------
-//SIGNUP
+
 exports.signup = async (req, res, next) => { // export de la fonction signup
   const { email, firstname, lastname, password } = req.body;//infos dans la request email, firstname...
   if (!regexEmail.test(email)) {
@@ -43,13 +41,13 @@ exports.signup = async (req, res, next) => { // export de la fonction signup
   const isFieldsEmpty = !email || !firstname || !lastname || !password;
 
   if (isFieldsEmpty) {
-    // si vide oun'existe pas
+    
     res.status(400).json({ error: "Merci de remplir tous les champs !" });
     return;
   }
   try {
     const hash = await bcrypt.hash(password, 10);
-    const user = await User.create({ // la reponse a la creation utilisateur revoie  l'id utilisateur res status 201 :ok
+    const user = await User.create({ 
       email: email,
       firstname: firstname,
       lastname: lastname,
@@ -63,8 +61,7 @@ exports.signup = async (req, res, next) => { // export de la fonction signup
     res.status(500).json({ error });
   }
 };
-//----------------------------------------------------------------------------------------------------------------------
-//LOGIN
+
 exports.login = async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -80,17 +77,16 @@ exports.login = async (req, res, next) => {
       return;
     }
     res.status(200).json({
-      userId: user.id /* avec l'id*/,
+      userId: user.id ,
       isAdmin: user.isAdmin,
       firstname: user.firstname,
       lastname: user.lastname,
       token: jwt.sign(
-        /*et avec un token /// 3 arguments demandés: */
         {
           userId: user.id,
           isAdmin: user.isAdmin,
-        } /*correspondance de l'id utilisateur*/,
-        process.env.TOKEN /*le token*/,
+        },
+        process.env.TOKEN ,
         { expiresIn: "24h" }
       ),
     });
@@ -98,7 +94,7 @@ exports.login = async (req, res, next) => {
     res.status(500).json({ error });
   }
 };
-//----------------------------------------------------------------------------------------------------------------------
+
 exports.getOneProfile = (req, res, next) => {
   User.findOne({
     attributes: ["id", "email", "firstname", "lastname"],
@@ -114,7 +110,7 @@ exports.getOneProfile = (req, res, next) => {
       });
     });
 };
-//----------------------------------------------------------------------------------------------------------------------
+
 exports.modifyProfile = async (req, res, next) => {
   try {
     if (!req.body.firstname || !req.body.lastname) {
@@ -144,7 +140,7 @@ exports.modifyProfile = async (req, res, next) => {
     });
   }
 };
-//----------------------------------------------------------------------------------------------------------------------
+
 exports.deleteProfile = async (req, res, next) => {
   try {
     const user = await User.findOne({ where: { id: req.params.id } });
@@ -171,7 +167,7 @@ exports.deleteProfile = async (req, res, next) => {
   }
 };
 
-//----------------------------------------------------------------------------------------------------------------------
+
 exports.getAllPostProfile = (req, res, next) => {
   Post.findAll({
     order: [["updatedAt", "DESC"]],

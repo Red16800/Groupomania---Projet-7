@@ -5,7 +5,6 @@
         <h1>{{ post.title }}</h1>
         <p>{{ post.content }}</p>
         <img :src="post.image" />
-        <!-- <img src="http://localhost:3000/images/monimage.png"> -->
         <div>
           <button class="btn btn-danger btn-lg btn-block"
             v-if="post.idUser === me || isAdmin"
@@ -14,10 +13,9 @@
             Supprimer
           </button>
         </div>
-        <!-- pour poster un commentaire -->
         <new-comment  @refresh="refreshComments" :id="post.id"></new-comment>
       </div>
-      <!-- Début des commentaires -->
+     
       <div class="comment">
         <h2>Commentaires :</h2>
       <div ref="comments">
@@ -33,7 +31,7 @@
               Supprimer
             </button>
           </div>
-          <!-- Fin des commentaires -->
+          
         </div>
       </div>
       </div>
@@ -43,7 +41,7 @@
     </div>
   </div>
 </template>
-//----------------------------------------------------------------------------------------------------------------------
+
 <script>
 import axios from "axios";
 import newComment from "../components/newComment";
@@ -61,7 +59,6 @@ export default {
     };
   },
   methods: {
-    // Pour charger le post selectionné
     async fetchPost() {
       try {
         const { data } = await axios.get("/api/post/" + this.$route.params.id);
@@ -76,7 +73,6 @@ export default {
         behavior: "smooth",
       });
     },
-    // Pour charger les commentaires du post
     async fetchComments() {
       try {
         const { data } = await axios.get(
@@ -89,7 +85,6 @@ export default {
         }
       }
     },
-    // Pour delete le commentaire séléctionné
     async deleteComment(id) {
       console.log("delete comment id: ", id);
       const isConfirm = await confirm(
@@ -109,7 +104,7 @@ export default {
           console.log({ error });
         });
     },
-    // Pour delete le post séléctionné
+    
     async deletePost(id) {
       console.log("delete post id: ", id);
       const isConfirm = await confirm(
