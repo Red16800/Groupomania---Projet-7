@@ -69,12 +69,28 @@ CREATE TABLE `comments` (
   CONSTRAINT `comments_ibfk_40` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_41` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_42` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_43` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_44` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_45` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_46` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_47` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_48` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_49` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_5` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_50` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_51` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_52` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_53` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_54` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_55` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_56` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_57` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_58` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_6` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_7` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_8` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_9` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,7 +99,6 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (18,6,95,'bijour','2022-06-21 09:58:59','2022-06-21 09:58:59'),(19,6,96,'Vivement les vacances !!!','2022-06-21 10:08:08','2022-06-21 10:08:08');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,14 +136,22 @@ CREATE TABLE `posts` (
   CONSTRAINT `posts_ibfk_22` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_23` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_24` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `posts_ibfk_25` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `posts_ibfk_26` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `posts_ibfk_27` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `posts_ibfk_28` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `posts_ibfk_29` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_3` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `posts_ibfk_30` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `posts_ibfk_31` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `posts_ibfk_32` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_4` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_5` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_6` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_7` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_8` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_9` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,7 +160,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (95,'Welcome','Bienvenue sur le réseau social de Groupomania','http://localhost:3000/images/WELCOME.jpg1655805337574.jpg','2022-06-21 09:55:37','2022-06-21 09:55:37',6),(96,'Youpi !!!','C\'est bientôt les vacances','http://localhost:3000/images/C-est-les-vacances-2010.jpg1655805746074.jpg','2022-06-21 10:02:26','2022-06-21 10:02:26',7);
+INSERT INTO `posts` VALUES (113,'C\'est les vacances !!!','Hourra','http://localhost:3000/images/C-est-les-vacances-2010.jpg1656420040000.jpg','2022-06-28 12:40:40','2022-06-28 12:40:40',20),(114,'Bienvenue !!!','Salut tout le monde','http://localhost:3000/images/WELCOME.jpg1656420123728.jpg','2022-06-28 12:42:03','2022-06-28 12:42:03',21);
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,7 +182,7 @@ CREATE TABLE `users` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQUE_EMAIL` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +191,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (6,'redouanekelai@yahoo.fr','Stéphanie','R','$2b$10$XfofDwDEOq9O3GhlapAnhOO.TwdmhXSyV.1RZEpDiQXbxSAdh6EMa',1,'2022-05-25 17:05:01','2022-06-21 10:33:31'),(7,'redouanekelai@gmail.com','Luffy','Monkey','$2b$10$OIpkC1c78OLe9anLcarPW.8xH0EzazenqllmQIA6wIezPqlKj6f0K',0,'2022-05-28 12:48:45','2022-06-21 10:02:56'),(9,'r.kelai@keyfirst.fr','Redouane','Kelai','$2b$10$whXNNpVa9ZlDPEmx4Be6VOz2Dimn8pPUZKQbAolnc2oQ5Fp57M83i',0,'2022-05-28 14:18:29','2022-05-28 14:18:29'),(15,'redouanekelai@yahoo.es','Kelai','radouane','$2b$10$tMHiV1zh4WZQPw2iSeAMX.90Aa.nwFUhjELkht6Ls6/FTszZdp7iW',0,'2022-06-13 15:48:34','2022-06-13 15:48:34');
+INSERT INTO `users` VALUES (20,'demo@demo.fr','Redouane','Kelai','$2b$10$AyEsj1Di4v4mfVBHqO9sCujT2Wf4fNPt/BLA229f25zpdr/0dqoCu',0,'2022-06-28 12:39:57','2022-06-28 12:39:57'),(21,'admin@admin.fr','Stéphanie','R','$2b$10$EdUm0Zq8mnpAkVM8AKP48e3drb0DZuB9xKacZ./lEOnwrvG7VwRf.',1,'2022-06-28 12:41:16','2022-06-28 12:41:16');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -181,4 +204,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-25 13:20:01
+-- Dump completed on 2022-06-28 14:45:23
