@@ -1,20 +1,36 @@
 # Groupomania---Projet-7
 
-Partie Backend : NodeJS , Express , MYSQL  et Sequelize
-•	Installer les dépendances via « npm install »
-•	Modifier le fichier « config/config.json » ( username + password)
-•	Créer une base de donnée « Groupomania » et ajouter les tables via le fichier « config/groupomania.sql »
-•	Démarrer le serveur via « nodemon server »
+**Backend : NodeJS , Express , MYSQL  et Sequelize** 
+
+    •   Installer les dépendances via « npm install »
+    •   Créer une base de donnée « Groupomania » et ajouter les tables via le fichier « config/groupomania.sql »
+    •   Dans backend créer le ficher .env et mettre une clé de token  
+    •   Démarrer le serveur via « nodemon server »
+    
+**Base de données** 
+
+    •   Modifier le fichier « config/config.json » ( username + password)
+    •   Créer une base de données, Commande : CREATE DATABASE groupomania;
 
 
-Partie Frontend : VueJS et Bootstrap
-•	Installer les dépendances via « npm install »
-•	Démarrer le serveur via « npm run serve »
+**Frontend : VueJS et Bootstrap** 
 
-Accès Admin :
+    •   Installer les dépendances via « npm install »
+    •   Démarrer le serveur via « npm run serve »
+    •   Aller sur la page : http://localhost:8080/
+    
+
+**Acces Admin** 
+
 Pour avoir accès aux droit administrateur il suffit de taper cette commande via MYSQL: 
 Update  users set isAdmin =  1  where id =  numéro de votre compte ;
 
-Compte utilisateur : demo@demo.fr  Password = Demo26100
-Compte admin : admin@admin.fr  Password = Admin26100
+**Compte utilisateur**: demo@demo.fr  Password = Demo26100
+
+**Compte admin** : admin@admin.fr  Password = Admin26100
+
+
+
+
+
 
