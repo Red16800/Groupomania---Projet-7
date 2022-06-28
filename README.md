@@ -14,6 +14,7 @@
     •   Démarrer le serveur via « npm run serve »
 
 **Acces Admin** 
+
 Pour avoir accès aux droit administrateur il suffit de taper cette commande via MYSQL: 
 Update  users set isAdmin =  1  where id =  numéro de votre compte ;
 
