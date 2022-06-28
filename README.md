@@ -3,6 +3,7 @@
 **Backend : NodeJS , Express , MYSQL  et Sequelize** 
 
     •   Installer les dépendances via « npm install »
+    •   Dans backend renommer le ficher .envExemple en .env et mettre une clé de token
     •   Créer une base de donnée « Groupomania » et ajouter les tables via le fichier « config/groupomania.sql »
     •   Démarrer le serveur via « nodemon server »
     
