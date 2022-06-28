@@ -9,7 +9,7 @@
 **Base de données** 
 
     •   Modifier le fichier « config/config.json » ( username + password)
-    •   Créer une base de données, Commande : CREATE DATABASE groupomania;
+    •   Créer une base de données, Commande : CREATE DATABASE groupomania  via MYSQL;
 
 
 **Frontend : VueJS et Bootstrap** 
