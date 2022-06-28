@@ -86,7 +86,11 @@ CREATE TABLE `comments` (
   CONSTRAINT `comments_ibfk_56` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_57` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_58` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_59` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_6` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_60` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_61` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `comments_ibfk_62` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_7` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_8` FOREIGN KEY (`idPost`) REFERENCES `posts` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `comments_ibfk_9` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE
@@ -145,6 +149,8 @@ CREATE TABLE `posts` (
   CONSTRAINT `posts_ibfk_30` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_31` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_32` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `posts_ibfk_33` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `posts_ibfk_34` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_4` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_5` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `posts_ibfk_6` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
@@ -191,7 +197,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (20,'demo@demo.fr','Redouane','Kelai','$2b$10$AyEsj1Di4v4mfVBHqO9sCujT2Wf4fNPt/BLA229f25zpdr/0dqoCu',0,'2022-06-28 12:39:57','2022-06-28 12:39:57'),(21,'admin@admin.fr','Stéphanie','R','$2b$10$EdUm0Zq8mnpAkVM8AKP48e3drb0DZuB9xKacZ./lEOnwrvG7VwRf.',1,'2022-06-28 12:41:16','2022-06-28 12:41:16');
+INSERT INTO `users` VALUES (20,'demo@demo.fr','Redouane','Kelai','$2b$10$AyEsj1Di4v4mfVBHqO9sCujT2Wf4fNPt/BLA229f25zpdr/0dqoCu',0,'2022-06-28 12:39:57','2022-06-28 12:39:57'),(21,'admin@admin.fr','St','R','$2b$10$EdUm0Zq8mnpAkVM8AKP48e3drb0DZuB9xKacZ./lEOnwrvG7VwRf.',1,'2022-06-28 12:41:16','2022-06-28 12:41:16');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -204,4 +210,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-28 14:45:23
+-- Dump completed on 2022-06-28 15:08:21
