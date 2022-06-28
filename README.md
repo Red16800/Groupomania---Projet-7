@@ -19,6 +19,7 @@ Pour avoir accès aux droit administrateur il suffit de taper cette commande via
 Update  users set isAdmin =  1  where id =  numéro de votre compte ;
 
 **Compte utilisateur**: demo@demo.fr  Password = Demo26100
+
 **Compte admin** : admin@admin.fr  Password = Admin26100
 
 
